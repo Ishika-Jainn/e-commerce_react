@@ -15,40 +15,35 @@ router.get("/", (req, res) => {
 
 
 router.post("/add", upload.single("image"), async (req, res) => {
-
-  const imagekit = new ImageKit({
+  try {
+    const imagekit = new ImageKit({
       publicKey: process.env.PUBLIC_KEY,
       privateKey: process.env.PRIVATE_KEY,
       urlEndpoint: process.env.URLENDPOINT,
-  });
+    });
 
+    const result = await imagekit.upload({
+      file : req.file.buffer,
+      fileName : req.file.originalname,
+      isPrivateFile : false,
+      isPublished : true
+    });
 
-  const result = await imagekit.upload({
-    file : req.file.buffer,
-    fileName : req.file.originalname,
-    isPrivateFile : false,
-    isPublished : true
-  })
-
-  const imageUrl = result.url
-
- 
-  const { title, description, category, price } = req.body;
-  
-
-      const product = new productModel(
-          {
-              title : title,
-              description : description,
-              category : category,
-              price : price,
-              image : imageUrl
-           }
-  )
-
-      await product.save()
-
-  res.json({message : "data aaya"})
+    const imageUrl = result.url
+    const { title, description, category, price } = req.body;
+    const product = new productModel({
+      title,
+      description,
+      category,
+      price,
+      image: imageUrl
+    });
+    await product.save();
+    res.json({ message: "data aaya" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Internal server error", error: error.message });
+  }
 });
 
 router.get("/:id",async (req, res)=>{
