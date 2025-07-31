@@ -1,0 +1,32 @@
+body , html {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+    flex-direction: column;
+}
+
+
+
+form{
+    border: 1px solid black;
+    padding: 15px;
+}
+
+
+form>label {
+    display: block;
+    margin-top: 10px;
+}
+
+form > input{
+    padding: 5px 10px;
+} 
+form > button {
+    margin-top: 10px;
+}

@@ -1,0 +1,77 @@
+body, .blue-bg {
+    background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+    min-height: 100vh;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    background: none;
+    padding: 32px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    justify-content: center;
+}
+
+.container .card, .blue-card {
+    width: 300px;
+    height: 420px;
+    border: 1.5px solid #90caf9;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px #90caf9;
+    object-fit: contain;
+    padding: 10px;
+    background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+.container .card:hover, .blue-card:hover {
+    box-shadow: 0 6px 24px #2196f3;
+    transform: translateY(-6px) scale(1.04);
+}
+.card .top {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card .top img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 1px 8px #90caf9;
+}
+.card .bottom {
+    padding: 8px 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+.add-cart-btn, .blue-btn {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 10px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s, color 0.2s;
+    box-shadow: 0 1px 4px #90caf9;
+}
+.add-cart-btn:hover, .blue-btn:hover {
+    background: #1565c0;
+    color: #e3f2fd;
+}
+.no-products {
+    color: #1976d2;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 40px;
+}

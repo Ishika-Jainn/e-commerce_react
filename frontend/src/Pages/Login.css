@@ -1,0 +1,113 @@
+.login-bg {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+}
+.login-form {
+  background: #fff;
+  padding: 36px 32px 28px 32px;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px #90caf9;
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  max-width: 90vw;
+  gap: 14px;
+}
+.login-form h2 {
+  color: #1976d2;
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 700;
+}
+.login-form label {
+  color: #1976d2;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.login-form input {
+  padding: 10px 12px;
+  border-radius: 7px;
+  border: 1.5px solid #90caf9;
+  font-size: 1rem;
+  background: #e3f2fd;
+  color: #1976d2;
+  margin-bottom: 6px;
+  transition: border 0.2s;
+}
+.login-form input:focus {
+  border: 1.5px solid #1976d2;
+  outline: none;
+}
+.login-form button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 1px 4px #90caf9;
+}
+.login-form button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+.login-form button:hover:not(:disabled) {
+  background: #1565c0;
+  color: #e3f2fd;
+}
+.login-error {
+  color: #d32f2f;
+  background: #ffcdd2;
+  border-radius: 6px;
+  padding: 7px 10px;
+  margin-bottom: 4px;
+  font-size: 0.98rem;
+  text-align: center;
+}
+.login-success {
+  color: #388e3c;
+  background: #c8e6c9;
+  border-radius: 6px;
+  padding: 7px 10px;
+  margin-bottom: 4px;
+  font-size: 0.98rem;
+  text-align: center;
+}
+.login-toggle {
+  margin-top: 10px;
+  text-align: center;
+  color: #1976d2;
+  font-size: 1rem;
+}
+.login-link-btn {
+  color: #1976d2;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+.login-link-btn:hover {
+  color: #1565c0;
+}
+.login-form select {
+  padding: 10px 12px;
+  border-radius: 7px;
+  border: 1.5px solid #90caf9;
+  font-size: 1rem;
+  background: #e3f2fd;
+  color: #1976d2;
+  margin-bottom: 6px;
+  transition: border 0.2s;
+}
+.login-form select:focus {
+  border: 1.5px solid #1976d2;
+  outline: none;
+}

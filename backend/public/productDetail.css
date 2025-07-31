@@ -1,0 +1,48 @@
+body , html {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card {
+    height: 80%;
+    width: 80%;
+    background-color: rgb(235, 216, 192);
+    display: flex;
+    gap: 10px;
+
+}
+
+.card .left {
+    height: 100%;
+}
+
+.card .left img {
+    width: 100%;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+
+button {
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+
+
+}
+
+button a {
+    text-decoration: none;
+
+    font-size: 2em;
+}

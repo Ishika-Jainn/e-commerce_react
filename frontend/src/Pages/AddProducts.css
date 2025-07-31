@@ -1,0 +1,100 @@
+.formContainer {
+  max-width: 420px;
+  margin: 48px auto;
+  padding: 32px 36px;
+  background: #e3f2fd;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #90caf9;
+}
+
+.formGroup {
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1976d2;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="file"],
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1.5px solid #90caf9;
+  border-radius: 7px;
+  font-size: 1rem;
+  margin-bottom: 6px;
+  background: #bbdefb;
+  color: #1976d2;
+  transition: border 0.2s;
+}
+input[type="text"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+  border: 1.5px solid #1976d2;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 60px;
+  max-height: 200px;
+  overflow: auto;
+}
+
+button[type="submit"], .update-btn, .delete-btn {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  padding: 12px 0;
+  border-radius: 7px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+  transition: background 0.2s, color 0.2s;
+}
+button[type="submit"]:hover, .update-btn:hover {
+  background: #1565c0;
+  color: #e3f2fd;
+}
+.delete-btn {
+  background: #bbdefb;
+  color: #1976d2;
+  margin-top: 0;
+  margin-left: 8px;
+  width: auto;
+  padding: 8px 16px;
+}
+.delete-btn:hover {
+  background: #1976d2;
+  color: #e3f2fd;
+}
+
+.product-list-placeholder, .product-list {
+  margin-top: 36px;
+  background: #bbdefb;
+  border-radius: 10px;
+  padding: 18px 16px;
+  color: #1976d2;
+}
+.product-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #90caf9;
+  padding: 10px 0;
+}
+.product-list-item:last-child {
+  border-bottom: none;
+}
+.product-list-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #1976d2;
+}
