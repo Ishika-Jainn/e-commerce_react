@@ -11,7 +11,9 @@ require("dotenv").config()
 app.use(morgon("dev"))
 
 
-app.use(cors())
+app.use(cors({
+    origin: "https://e-commerce-react-frontend-jpj4.onrender.com",
+}))
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
