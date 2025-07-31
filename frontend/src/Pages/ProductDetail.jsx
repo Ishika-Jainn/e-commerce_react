@@ -15,7 +15,7 @@ const ProductDetail = () => {
   }, []);
 
   const getProductDetail = async () => {
-    await axios.get("http://localhost:3000/products/" + productId)
+    await axios.get("https://e-commerce-react-backend-a0bg.onrender.com/products/" + productId)
       .then((res) => {
         setProduct(res.data.product);
       })

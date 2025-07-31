@@ -20,7 +20,7 @@ const AddProducts = () => {
     }, []);
 
     const fetchProducts = () => {
-        axios.get('http://localhost:3000/')
+        axios.get('https://e-commerce-react-backend-a0bg.onrender.com/')
             .then(res => {
                 setProducts(res.data.products || []);
             })
@@ -32,7 +32,7 @@ const AddProducts = () => {
         let formData = new FormData(e.target);
         if (editId) {
             // Update mode
-            axios.post(`http://localhost:3000/products/update/${editId}`, formData)
+            axios.post(`https://e-commerce-react-backend-a0bg.onrender.com/products/update/${editId}`, formData)
                 .then((res) => {
                     setEditId(null);
                     setEditImage(null);
@@ -48,7 +48,7 @@ const AddProducts = () => {
                 });
         } else {
             // Add mode
-            axios.post("http://localhost:3000/products/add", formData)
+            axios.post("https://e-commerce-react-backend-a0bg.onrender.com/products/add", formData)
                 .then((res) => {
                     settitle('');
                     setdescription('');
@@ -64,7 +64,7 @@ const AddProducts = () => {
     };
 
     const handleDelete = (id) => {
-        axios.get(`http://localhost:3000/products/delete/${id}`)
+        axios.get(`https://e-commerce-react-backend-a0bg.onrender.com/products/delete/${id}`)
             .then(() => {
                 fetchProducts();
             })

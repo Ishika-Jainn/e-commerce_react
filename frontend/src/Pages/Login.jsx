@@ -29,7 +29,7 @@ const Login = () => {
         return;
       }
       try {
-        await axios.post('http://localhost:3000/users/register', {
+        await axios.post('https://e-commerce-react-backend-a0bg.onrender.com/users/register', {
           username: name,
           email,
           password,

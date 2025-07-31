@@ -54,7 +54,7 @@ const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post('http://localhost:3000/users/login', { email, password });
+      const res = await axios.post('https://e-commerce-react-backend-a0bg.onrender.com/users/login', { email, password });
       if (res.status === 200) {
         setToken('dummy-token'); 
         setUser({ email: res.data.email, username: res.data.username, role: res.data.role });
