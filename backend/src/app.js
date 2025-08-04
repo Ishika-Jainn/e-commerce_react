@@ -11,9 +11,24 @@ require("dotenv").config()
 app.use(morgon("dev"))
 
 
+// app.use(cors({
+//     origin: "https://e-commerce-react-frontend-jpj4.onrender.com",
+// }))
 app.use(cors({
-    origin: "https://e-commerce-react-frontend-jpj4.onrender.com",
-}))
+    origin: function (origin, callback) {
+        const allowedOrigins = [
+            "http://localhost:5173",
+            "https://e-commerce-react-frontend-jpj4.onrender.com"
+        ];
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error("Not allowed by CORS"));
+        }
+    },
+    credentials: true
+}));
+
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
