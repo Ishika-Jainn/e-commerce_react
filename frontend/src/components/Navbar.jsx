@@ -1,7 +1,23 @@
-import React, { useState, useContext } from 'react'
-import "./Navbar.css"
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { CartContext, AuthContext } from '../App'
+import React, { useState, useContext, useEffect } from 'react';
+import './Navbar.css'; // Make sure Navbar.css is in the same folder
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { CartContext, AuthContext } from '../App'; // Make sure App.js is in the parent folder
+
+// --- SVG Icons for a consistent look ---
+const SearchIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="11" cy="11" r="8"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+);
+
+const CartIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="9" cy="21" r="1"></circle>
+    <circle cx="20" cy="21" r="1"></circle>
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+  </svg>
+);
 
 const Navbar = ({ onSearch }) => {
   const [search, setSearch] = useState("");
@@ -9,6 +25,8 @@ const Navbar = ({ onSearch }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const isAdminRoute = location.pathname.startsWith('/admin');
+  
+  // Use context from App.js
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
   const { user, logout } = useContext(AuthContext);
 
@@ -20,9 +38,19 @@ const Navbar = ({ onSearch }) => {
     if (e.key === 'Enter') handleSearch();
   };
 
-  const handleCartClick = () => {
+  const handleCartClick = (e) => {
+    // Stop propagation to prevent the document click listener from immediately closing it
+    e.stopPropagation();
     setShowCart((prev) => !prev);
   };
+  
+  // Effect to close the cart when clicking outside of it
+  useEffect(() => {
+    const closeCart = () => setShowCart(false);
+    document.addEventListener('click', closeCart);
+    return () => document.removeEventListener('click', closeCart);
+  }, []);
+
 
   const handleLogout = () => {
     logout();
@@ -30,79 +58,95 @@ const Navbar = ({ onSearch }) => {
   };
 
   return (
-    <nav className="navbar-blue">
-      <div className="left">
-        <Link to={isAdminRoute ? "/admin" : "/"}><h2>Shopy</h2></Link>
+    <nav className="navbar">
+      {/* Left side: Brand */}
+      <div className="navbar-left">
+        <Link to={isAdminRoute ? "/admin" : "/"} className="navbar-brand">
+          StorePoint
+        </Link>
       </div>
-      <div className='search'>
-        <input
-          type="text"
-          value={search}
-          onChange={e => setSearch(e.target.value)}
-          onKeyDown={handleKeyDown}
-          placeholder="Search products..."
-        />
-        <button className="search-btn" onClick={handleSearch} aria-label="Search">
-          <span role="img" aria-label="search">🔍</span>
-        </button>
-      </div>
-      <div className="right">
-      
-        {user && user.role === 'admin' && (
-          <div className="user-actions">
-            <Link to="/admin/products/add" className="add-product-link">Add new Product</Link>
-            <div className="user-info">
-              <span className="user-email">{user.email}</span>
-              <button className="logout-btn" onClick={handleLogout}>Logout</button>
-            </div>
-          </div>
-        )}
-     
-        {user && user.role !== 'admin' && (
-          <div className="user-actions">
-            <div className="cart-icon" onClick={handleCartClick} tabIndex={0} aria-label="Cart" role="button">
-              <span role="img" aria-label="cart">🛒</span>
-              {cart.length > 0 && <span className="cart-count">{cart.reduce((a, b) => a + b.quantity, 0)}</span>}
-              {showCart && (
-                <div className="cart-dropdown">
-                  <h4>Cart</h4>
-                  {cart.length === 0 ? (
-                    <div className="empty">Your cart is empty.</div>
-                  ) : (
-                    <ul>
-                      {cart.map((item) => (
-                        <li key={item._id} className="cart-dropdown-item">
-                          <img src={item.image} alt={item.title} className="cart-dropdown-img" />
-                          <div className="cart-dropdown-info">
-                            <div className="cart-dropdown-title">{item.title}</div>
-                            <div className="cart-dropdown-price">₹{item.price}</div>
-                            <div className="cart-dropdown-qty">
-                              <button onClick={() => updateQuantity(item._id, Math.max(1, item.quantity - 1))}>-</button>
-                              <span>{item.quantity}</span>
-                              <button onClick={() => updateQuantity(item._id, item.quantity + 1)}>+</button>
-                            </div>
+
+      {/* Center: Search Bar (not shown on admin routes) */}
+      {!isAdminRoute && (
+        <div className='navbar-search'>
+          <input
+            type="text"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            onKeyDown={handleKeyDown}
+            placeholder="Search for products..."
+            className="search-input"
+          />
+          <button className="search-button" onClick={handleSearch} aria-label="Search">
+            <SearchIcon />
+          </button>
+        </div>
+      )}
+
+      {/* Right side: Actions */}
+      <div className="navbar-right">
+        {user ? (
+          // --- User is Logged In ---
+          <div className="navbar-actions">
+            {user.role === 'admin' ? (
+              // --- Admin View ---
+              <>
+                <Link to="/admin/products/add" className="navbar-link">Add Product</Link>
+                <span className="user-display">Admin: {user.email}</span>
+                <button className="navbar-button" onClick={handleLogout}>Logout</button>
+              </>
+            ) : (
+              // --- Regular User View ---
+              <>
+                <span className="user-display">{user.email}</span>
+                <div className="cart-container" onClick={handleCartClick}>
+                  <div className="cart-icon-wrapper" tabIndex={0} aria-label="Cart" role="button">
+                    <CartIcon />
+                    {cart.length > 0 && <span className="cart-count">{cart.reduce((a, b) => a + b.quantity, 0)}</span>}
+                  </div>
+                  {showCart && (
+                    <div className="cart-dropdown" onClick={e => e.stopPropagation()}>
+                      <h4>Shopping Cart</h4>
+                      {cart.length === 0 ? (
+                        <div className="cart-empty">Your cart is empty.</div>
+                      ) : (
+                        <>
+                          <ul className="cart-list">
+                            {cart.map((item) => (
+                              <li key={item._id} className="cart-item">
+                                <img src={item.image} alt={item.title} className="cart-item-img" />
+                                <div className="cart-item-info">
+                                  <div className="cart-item-title">{item.title}</div>
+                                  <div className="cart-item-price">₹{item.price}</div>
+                                </div>
+                                <div className="cart-item-qty">
+                                  <button onClick={() => updateQuantity(item._id, Math.max(1, item.quantity - 1))}>-</button>
+                                  <span>{item.quantity}</span>
+                                  <button onClick={() => updateQuantity(item._id, item.quantity + 1)}>+</button>
+                                </div>
+                                <button className="cart-item-remove" onClick={() => removeFromCart(item._id)} title="Remove">✕</button>
+                              </li>
+                            ))}
+                          </ul>
+                          <div className="cart-total">
+                            <strong>Total:</strong> ₹{cart.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2)}
                           </div>
-                          <button className="cart-dropdown-remove" onClick={() => removeFromCart(item._id)} title="Remove">✕</button>
-                        </li>
-                      ))}
-                    </ul>
+                        </>
+                      )}
+                    </div>
                   )}
                 </div>
-              )}
-            </div>
-            <div className="user-info">
-              <span className="user-email">{user.email}</span>
-              <button className="logout-btn" onClick={handleLogout}>Logout</button>
-            </div>
+                <button className="navbar-button" onClick={handleLogout}>Logout</button>
+              </>
+            )}
           </div>
-        )}
-      
-        {!user && (
-          <Link to="/login" className="login-link">Login</Link>
+        ) : (
+          // --- User is Logged Out ---
+          <Link to="/login" className="navbar-button">Login</Link>
         )}
       </div>
     </nav>
   )
 }
 
-export default Navbar
+export default Navbar;
