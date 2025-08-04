@@ -1,5 +1,5 @@
 body, .blue-bg {
-    background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+    background: linear-gradient(120deg, #f5f5f5 0%, #e0e0e0 100%);
     min-height: 100vh;
 }
 
@@ -17,19 +17,19 @@ body, .blue-bg {
 .container .card, .blue-card {
     width: 300px;
     height: 420px;
-    border: 1.5px solid #90caf9;
+    border: 1.5px solid #ccc;
     border-radius: 16px;
-    box-shadow: 0 2px 12px #90caf9;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     object-fit: contain;
     padding: 10px;
-    background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+    background: linear-gradient(120deg, #f5f5f5 0%, #e0e0e0 100%);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: box-shadow 0.2s, transform 0.2s;
 }
 .container .card:hover, .blue-card:hover {
-    box-shadow: 0 6px 24px #2196f3;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
     transform: translateY(-6px) scale(1.04);
 }
 .card .top {
@@ -44,7 +44,7 @@ body, .blue-bg {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 1px 8px #90caf9;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
 }
 .card .bottom {
     padding: 8px 0 0 0;
@@ -53,7 +53,7 @@ body, .blue-bg {
     gap: 7px;
 }
 .add-cart-btn, .blue-btn {
-    background: #1976d2;
+    background: #333;
     color: #fff;
     border: none;
     border-radius: 7px;
@@ -63,14 +63,14 @@ body, .blue-bg {
     cursor: pointer;
     margin-top: 8px;
     transition: background 0.2s, color 0.2s;
-    box-shadow: 0 1px 4px #90caf9;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 .add-cart-btn:hover, .blue-btn:hover {
-    background: #1565c0;
-    color: #e3f2fd;
+    background: #555;
+    color: #fff;
 }
 .no-products {
-    color: #1976d2;
+    color: #333;
     font-size: 1.3rem;
     font-weight: 600;
     margin-top: 40px;

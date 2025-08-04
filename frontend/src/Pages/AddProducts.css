@@ -2,9 +2,9 @@
   max-width: 420px;
   margin: 48px auto;
   padding: 32px 36px;
-  background: #e3f2fd;
+  background: #f5f5f5;
   border-radius: 16px;
-  box-shadow: 0 4px 24px #90caf9;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
 }
 
 .formGroup {
@@ -15,7 +15,7 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
-  color: #1976d2;
+  color: #333;
 }
 
 input[type="text"],
@@ -24,18 +24,18 @@ input[type="file"],
 textarea {
   width: 100%;
   padding: 10px 12px;
-  border: 1.5px solid #90caf9;
+  border: 1.5px solid #ccc;
   border-radius: 7px;
   font-size: 1rem;
   margin-bottom: 6px;
-  background: #bbdefb;
-  color: #1976d2;
+  background: #e0e0e0;
+  color: #333;
   transition: border 0.2s;
 }
 input[type="text"]:focus,
 input[type="number"]:focus,
 textarea:focus {
-  border: 1.5px solid #1976d2;
+  border: 1.5px solid #333;
   outline: none;
 }
 
@@ -47,7 +47,7 @@ textarea {
 }
 
 button[type="submit"], .update-btn, .delete-btn {
-  background: #1976d2;
+  background: #333;
   color: #fff;
   border: none;
   padding: 12px 0;
@@ -60,34 +60,34 @@ button[type="submit"], .update-btn, .delete-btn {
   transition: background 0.2s, color 0.2s;
 }
 button[type="submit"]:hover, .update-btn:hover {
-  background: #1565c0;
-  color: #e3f2fd;
+  background: #555;
+  color: #fff;
 }
 .delete-btn {
-  background: #bbdefb;
-  color: #1976d2;
+  background: #e0e0e0;
+  color: #333;
   margin-top: 0;
   margin-left: 8px;
   width: auto;
   padding: 8px 16px;
 }
 .delete-btn:hover {
-  background: #1976d2;
-  color: #e3f2fd;
+  background: #333;
+  color: #fff;
 }
 
 .product-list-placeholder, .product-list {
   margin-top: 36px;
-  background: #bbdefb;
+  background: #e0e0e0;
   border-radius: 10px;
   padding: 18px 16px;
-  color: #1976d2;
+  color: #333;
 }
 .product-list-item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #90caf9;
+  border-bottom: 1px solid #ccc;
   padding: 10px 0;
 }
 .product-list-item:last-child {
@@ -96,5 +96,5 @@ button[type="submit"]:hover, .update-btn:hover {
 .product-list-title {
   font-weight: 600;
   font-size: 1.05rem;
-  color: #1976d2;
+  color: #333;
 }

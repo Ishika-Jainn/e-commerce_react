@@ -69,7 +69,9 @@ const Home = () => {
                   {elem.description}
                 </p>
                 <h2>Price : ₹{elem.price}</h2>
-                <button className="add-cart-btn blue-btn" onClick={() => addToCart(elem)}>Add to Cart</button>
+                {user && user.role !== 'admin' && (
+                  <button className="add-cart-btn blue-btn" onClick={() => addToCart(elem)}>Add to Cart</button>
+                )}
               </div>
             </div>;
           })

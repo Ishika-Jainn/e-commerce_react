@@ -49,7 +49,13 @@ const Navbar = ({ onSearch }) => {
       <div className="right">
       
         {user && user.role === 'admin' && (
-          <Link to="/admin/products/add" className="add-product-link">Add new Product</Link>
+          <div className="user-actions">
+            <Link to="/admin/products/add" className="add-product-link">Add new Product</Link>
+            <div className="user-info">
+              <span className="user-email">{user.email}</span>
+              <button className="logout-btn" onClick={handleLogout}>Logout</button>
+            </div>
+          </div>
         )}
      
         {user && user.role !== 'admin' && (

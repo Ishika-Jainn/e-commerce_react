@@ -160,7 +160,7 @@ const AddProducts = () => {
                         <div className="product-list-item" key={product._id}>
                             <span className="product-list-title">{product.title}</span>
                             <div>
-                                <button className="update-btn" onClick={()=>handleEdit(product)} style={{marginRight:'8px'}}>Update</button>
+                                <button className="update-btn" onClick={()=>handleEdit(product)} style={{marginRight:'16px'}}>Update</button>
                                 <button className="delete-btn" onClick={()=>handleDelete(product._id)}>Delete</button>
                             </div>
                         </div>

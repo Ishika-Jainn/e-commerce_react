@@ -7,16 +7,17 @@ body , html {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    background: #f5f5f5;
 }
 
 .card {
     height: 80%;
     width: 80%;
-    background-color: rgb(235, 216, 192);
+    background-color: white;
     display: flex;
     gap: 10px;
-
+    border: 2px solid #333;
+    border-radius: 10px;
 }
 
 .card .left {
@@ -32,17 +33,16 @@ body , html {
     justify-content: space-around;
 }
 
-
 button {
     padding: 5px 10px;
     border-radius: 10px;
     border: none;
-
-
+    background: #333;
+    color: white;
 }
 
 button a {
     text-decoration: none;
-
     font-size: 2em;
+    color: white;
 }
