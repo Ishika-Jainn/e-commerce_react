@@ -3,6 +3,7 @@ import './Login.css';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App'; // Make sure this path is correct
 import axios from 'axios';
+import myHeroImage from '../assets/Rectangle 53.png';// Adjust the path as necessary
 
 // --- Navbar Component (with updated links for scrolling) ---
 const Navbar = () => {
@@ -24,11 +25,11 @@ const AboutUsSection = () => {
     // Added id="about" for scroll navigation
     <section id="about" className="about-us-section">
       <div className="hero-image-container">
-        <img 
-          src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=1974&auto=format&fit=crop" 
-          alt="A library of books" 
-          className="hero-image"
-        />
+       <img 
+    src={myHeroImage} 
+    alt="A background for the StorePoint login page" 
+    className="hero-image"
+  />
      
       </div>
       <div className="about-us-content">
