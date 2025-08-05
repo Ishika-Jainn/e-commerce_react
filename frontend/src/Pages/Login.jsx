@@ -26,7 +26,7 @@ const AboutUsSection = () => {
       <div className="hero-image-container">
        <img 
     src={myHeroImage} 
-    alt="A background for the StorePoint login page" 
+    alt="image" 
     className="hero-image"
   />
      
