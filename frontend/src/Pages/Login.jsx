@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../App'; // Make sure this path is correct
 import axios from 'axios';
 import myHeroImage from '../assets/Rectangle 53.png';// Adjust the path as necessary
+import loginVideo from '../assets/video1.mp4'; // Import the video
 
 // --- Navbar Component (with updated links for scrolling) ---
 const Navbar = () => {
@@ -148,64 +149,72 @@ const Login = () => {
       <div className="page-wrapper">
         <AboutUsSection />
         
-        <div className="login-container">
-          <form className="login-form" onSubmit={handleSubmit}>
-            <h2>{isSignup ? 'Create an Account' : 'Login to Your Account!'}</h2>
-            
-            {isSignup && (
-              <div className="input-wrapper">
-                <input type="text" value={name} onChange={e => setName(e.target.value)} required placeholder="Enter Name"/>
-                <div className="input-icon"><UserIcon /></div>
-              </div>
-            )}
-
-            <div className="input-wrapper">
-              <input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="Enter Email" autoFocus />
-              <div className="input-icon"><AtSignIcon /></div>
-            </div>
-
-            <div className="input-wrapper">
-              <input type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)} required placeholder="Enter Password"/>
-              <div className="input-icon" style={{cursor: 'pointer'}} onClick={() => setShowPassword(!showPassword)}><EyeIcon /></div>
-            </div>
-
-            {isSignup && (
-              <>
+        <div className="login-main-section">
+          <div className="login-video-wrapper">
+            <video src={loginVideo} autoPlay loop muted playsInline>
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="login-container">
+            <form className="login-form" onSubmit={handleSubmit}>
+              <h2>{isSignup ? 'Create an Account' : 'Login to Your Account!'}</h2>
+              
+              {isSignup && (
                 <div className="input-wrapper">
-                  <input type={showConfirmPassword ? "text" : "password"} value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required placeholder="Confirm Password"/>
-                  <div className="input-icon" style={{cursor: 'pointer'}} onClick={() => setShowConfirmPassword(!showConfirmPassword)}><EyeIcon /></div>
+                  <input type="text" value={name} onChange={e => setName(e.target.value)} required placeholder="Enter Name"/>
+                  <div className="input-icon"><UserIcon /></div>
                 </div>
-                <div className="input-wrapper">
-                  <select value={role} onChange={e => setRole(e.target.value)} required>
-                    <option value="user">User</option>
-                    <option value="admin">Admin</option>
-                  </select>
-                </div>
-              </>
-            )}
-
-            {error && <div className="login-error">{error}</div>}
-            {success && <div className="login-success">{success}</div>}
-
-            <button type="submit" disabled={loading}>{loading ? (isSignup ? 'Signing up...' : 'Logging in...') : (isSignup ? 'Sign Up' : 'Login')}</button>
-          </form>
-
-          <div className="login-toggle-container">
-              <div className="login-toggle">
-              {isSignup ? (
-                  <>
-                  Already have an account?{' '}
-                  <span className="login-link-btn" onClick={toggleForm}>Login</span>
-                  </>
-              ) : (
-                  <>
-                  Don't you have an account?{' '}
-                  <span className="login-link-btn" onClick={toggleForm}>Sign up</span>
-                  </>
               )}
+
+              <div className="input-wrapper">
+                <input type="email" value={email} onChange={e => setEmail(e.target.value)} required placeholder="Enter Email" autoFocus />
+                <div className="input-icon"><AtSignIcon /></div>
               </div>
+
+              <div className="input-wrapper">
+                <input type={showPassword ? "text" : "password"} value={password} onChange={e => setPassword(e.target.value)} required placeholder="Enter Password"/>
+                <div className="input-icon" style={{cursor: 'pointer'}} onClick={() => setShowPassword(!showPassword)}><EyeIcon /></div>
+              </div>
+
+              {isSignup && (
+                <>
+                  <div className="input-wrapper">
+                    <input type={showConfirmPassword ? "text" : "password"} value={confirmPassword} onChange={e => setConfirmPassword(e.target.value)} required placeholder="Confirm Password"/>
+                    <div className="input-icon" style={{cursor: 'pointer'}} onClick={() => setShowConfirmPassword(!showConfirmPassword)}><EyeIcon /></div>
+                  </div>
+                  <div className="input-wrapper">
+                    <select value={role} onChange={e => setRole(e.target.value)} required>
+                      <option value="user">User</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
+                </>
+              )}
+
+              {error && <div className="login-error">{error}</div>}
+              {success && <div className="login-success">{success}</div>}
+
+              <button type="submit" disabled={loading}>{loading ? (isSignup ? 'Signing up...' : 'Logging in...') : (isSignup ? 'Sign Up' : 'Login')}</button>
+            </form>
+
+            <div className="login-toggle-container">
+                <div className="login-toggle">
+                {isSignup ? (
+                    <>
+                    Already have an account?{' '}
+                    <span className="login-link-btn" onClick={toggleForm}>Login</span>
+                    </>
+                ) : (
+                    <>
+                    Don't you have an account?{' '}
+                    <span className="login-link-btn" onClick={toggleForm}>Sign up</span>
+                    </>
+                )}
+                </div>
+            </div>
           </div>
         </div>
+
 
         <CommitmentSection />
         <ContactSection />

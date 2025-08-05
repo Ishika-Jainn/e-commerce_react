@@ -107,11 +107,36 @@ html {
 
 
 /* --- Login Section Styles --- */
+.login-main-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem; /* Spacing between video and form */
+  padding: 4rem 5%;
+}
+
+.login-video-wrapper {
+  flex: 1;
+  max-width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-video-wrapper video {
+  width: 100%;
+  max-width: 600px; /* Limit video size */
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 .login-container {
+  flex: 1; /* Make it a flex item */
   width: 100%;
   max-width: 500px;
   text-align: center;
-  margin: 4rem auto;
+  margin: 0; /* Changed from margin: 4rem auto */
   padding: 0 1rem;
   box-sizing: border-box;
 }
@@ -273,4 +298,28 @@ html {
 
 .contact-section p {
   text-align: center;
+}
+
+/* --- Responsive Styles --- */
+@media (max-width: 1024px) {
+  .login-main-section {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .login-video-wrapper {
+    max-width: 80%;
+    width: 100%;
+  }
+
+  .login-container {
+    max-width: 500px;
+    flex: none; /* Reset flex property */
+  }
+}
+
+@media (max-width: 600px) {
+    .login-video-wrapper {
+        max-width: 100%;
+    }
 }
