@@ -11,9 +11,7 @@ require("dotenv").config()
 app.use(morgon("dev"))
 
 
-// app.use(cors({
-//     origin: "https://e-commerce-react-frontend-jpj4.onrender.com",
-// }))
+
 app.use(cors({
     origin: function (origin, callback) {
         const allowedOrigins = [

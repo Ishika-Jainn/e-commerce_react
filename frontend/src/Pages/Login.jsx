@@ -1,12 +1,11 @@
 import React, { useState, useContext } from 'react';
 import './Login.css';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../App'; // Make sure this path is correct
+import { AuthContext } from '../App';
 import axios from 'axios';
-import myHeroImage from '../assets/Rectangle 53.png';// Adjust the path as necessary
-import loginVideo from '../assets/video1.mp4'; // Import the video
+import myHeroImage from '../assets/Rectangle 53.png';
+import loginVideo from '../assets/video1.mp4'; 
 
-// --- Navbar Component (with updated links for scrolling) ---
 const Navbar = () => {
   return (
     <nav className="navbar">
@@ -20,10 +19,9 @@ const Navbar = () => {
   );
 };
 
-// --- About Us Section Component ---
 const AboutUsSection = () => {
   return (
-    // Added id="about" for scroll navigation
+
     <section id="about" className="about-us-section">
       <div className="hero-image-container">
        <img 
@@ -43,7 +41,7 @@ const AboutUsSection = () => {
   );
 };
 
-// --- New Commitment Section ---
+
 const CommitmentSection = () => {
   return (
     <section className="commitment-section">
@@ -55,10 +53,9 @@ const CommitmentSection = () => {
   );
 };
 
-// --- New Contact Section ---
 const ContactSection = () => {
   return (
-    // Added id="contact" for scroll navigation
+
     <section id="contact" className="contact-section">
       <h2>Contact Us</h2>
       <h3>We're Here to Help — Anytime, Anywhere</h3>
@@ -68,14 +65,13 @@ const ContactSection = () => {
 };
 
 
-// --- Icon Components ---
 const EyeIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>);
 const AtSignIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path></svg>);
 const UserIcon = () => (<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>);
 
 
 const Login = () => {
-  // --- State Management (Functionality unchanged) ---
+
   const [isSignup, setIsSignup] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -90,7 +86,6 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-  // --- Form Submission Logic (Functionality unchanged) ---
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -142,7 +137,6 @@ const Login = () => {
       setConfirmPassword('');
   }
 
-  // --- Render Method (Updated to include all sections) ---
   return (
     <>
       <Navbar />

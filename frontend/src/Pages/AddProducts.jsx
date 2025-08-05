@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 
 const AddProducts = () => {
-    const { productId } = useParams(); // Get productId from URL if it exists
+    const { productId } = useParams(); 
     const navigate = useNavigate();
 
     const [isEditMode, setIsEditMode] = useState(false);

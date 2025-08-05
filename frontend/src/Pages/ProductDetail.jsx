@@ -65,7 +65,7 @@ const ProductDetail = () => {
             <p>{product.description}</p>
             <h2>Price: ₹{product.price}</h2>
             
-            {/* --- CHANGES START --- */}
+            
             {user && user.role === 'admin' ? (
               <div className="admin-actions">
                 <button className="update-btn" onClick={handleUpdate}>Update Product</button>
@@ -74,7 +74,7 @@ const ProductDetail = () => {
             ) : (
               <button className="add-cart-btn blue-btn" onClick={() => addToCart(product)}>Add to Cart</button>
             )}
-            {/* --- CHANGES END --- */}
+         
 
           </div>
         </div>

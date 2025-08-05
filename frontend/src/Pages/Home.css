@@ -1,42 +1,42 @@
-/* --- Updated Home.css --- */
+
 body, .blue-bg {
-    background: #000000; /* Set main background to black */
+    background: #000000; 
     min-height: 100vh;
-    color: #e0e0e0; /* Default text color for the page */
+    color: #e0e0e0;
 }
 
 .container {
     height: 100%;
     width: 100%;
     background: none;
-    padding: 48px 2%; /* Added more padding */
+    padding: 48px 2%; 
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem; /* Increased gap for better spacing */
+    gap: 2rem;
     justify-content: center;
 }
 
 .container .card, .blue-card {
     width: 320px;
-    height: auto; /* Allow height to be dynamic */
+    height: auto; 
     min-height: 420px;
-    border: 1px solid #333; /* Darker border */
+    border: 1px solid #333; 
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     padding: 1rem;
-    background: #1a1a1a; /* Dark card background */
+    background: #1a1a1a; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     transition: box-shadow 0.2s, transform 0.2s;
 }
 .container .card:hover, .blue-card:hover {
-    box-shadow: 0 6px 20px rgba(240, 185, 11, 0.1); /* Gold glow on hover */
+    box-shadow: 0 6px 20px rgba(240, 185, 11, 0.1); 
     transform: translateY(-5px);
 }
 .card .top {
     width: 100%;
-    height: 200px; /* Fixed height for image container */
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,11 +53,11 @@ body, .blue-bg {
     padding: 0;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Allow bottom section to fill space */
+    flex-grow: 1; 
     gap: 0.5rem;
 }
 
-/* Style for the product title Link */
+
 .card .bottom a {
     font-size: 1.2rem;
     font-weight: 700;
@@ -69,11 +69,10 @@ body, .blue-bg {
     color: #f0b90b;
 }
 
-/* Style for product description */
 .card .bottom p {
     color: #aaa;
     font-size: 0.95rem;
-    flex-grow: 1; /* Allow description to take available space */
+    flex-grow: 1;
     line-height: 1.5;
 }
 
@@ -85,8 +84,8 @@ body, .blue-bg {
 }
 
 .add-cart-btn, .blue-btn {
-    background: #f0b90b; /* Gold background */
-    color: #000; /* Black text */
+    background: #f0b90b; 
+    color: #000;
     border: none;
     border-radius: 8px;
     padding: 0.75rem 0;
@@ -98,7 +97,7 @@ body, .blue-bg {
     transition: background 0.2s;
 }
 .add-cart-btn:hover, .blue-btn:hover {
-    background: #f3c84b; /* Slightly lighter gold on hover */
+    background: #f3c84b; 
 }
 .no-products {
     color: #e0e0e0;

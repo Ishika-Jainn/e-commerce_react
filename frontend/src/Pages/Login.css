@@ -1,12 +1,10 @@
-/* Import Google Fonts for a more stylish look */
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap');
 
-/* --- Global Styles for Smooth Scrolling --- */
 html {
   scroll-behavior: smooth;
 }
 
-/* --- Navbar Styles --- */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -42,12 +40,12 @@ html {
   color: #f0b90b;
 }
 
-/* --- Page Wrapper --- */
+
 .page-wrapper {
   background-color: #000000;
   color: #d1c5ac;
   font-family: 'Roboto', sans-serif;
-  padding-top: 85px; /* Height of the navbar */
+  padding-top: 85px;
 }
 #about, #contact {
   scroll-margin-top: 100px;
@@ -106,12 +104,11 @@ html {
 }
 
 
-/* --- Login Section Styles --- */
 .login-main-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem; /* Spacing between video and form */
+  gap: 4rem; 
   padding: 4rem 5%;
 }
 
@@ -125,18 +122,18 @@ html {
 
 .login-video-wrapper video {
   width: 100%;
-  max-width: 600px; /* Limit video size */
+  max-width: 600px; 
   height: auto;
   border-radius: 12px;
   object-fit: cover;
 }
 
 .login-container {
-  flex: 1; /* Make it a flex item */
+  flex: 1; 
   width: 100%;
   max-width: 500px;
   text-align: center;
-  margin: 0; /* Changed from margin: 4rem auto */
+  margin: 0; 
   padding: 0 1rem;
   box-sizing: border-box;
 }
@@ -264,7 +261,7 @@ html {
   border: 1px solid #155724;
 }
 
-/* --- Commitment & Contact Section Styles --- */
+
 .commitment-section, .contact-section {
   padding: 4rem 5%;
   max-width: 800px;
@@ -300,7 +297,6 @@ html {
   text-align: center;
 }
 
-/* --- Responsive Styles --- */
 @media (max-width: 1024px) {
   .login-main-section {
     flex-direction: column;
@@ -314,7 +310,7 @@ html {
 
   .login-container {
     max-width: 500px;
-    flex: none; /* Reset flex property */
+    flex: none; 
   }
 }
 

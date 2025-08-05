@@ -1,9 +1,9 @@
-/* --- Updated AddProducts.css --- */
+
 .formContainer {
   max-width: 500px;
   margin: 48px auto;
   padding: 2.5rem;
-  background: #1a1a1a; /* Dark form background */
+  background: #1a1a1a; 
   border-radius: 12px;
   border: 1px solid #333;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
@@ -17,7 +17,7 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #e0e0e0; /* Light text for labels */
+  color: #e0e0e0; 
 }
 
 input[type="text"],
@@ -27,9 +27,9 @@ textarea {
   width: 100%;
   padding: 0.8rem 1rem;
   border-radius: 8px;
-  border: 1px solid #444; /* Darker border */
-  background-color: #000; /* Black input background */
-  color: #e0e0e0; /* Light input text */
+  border: 1px solid #444; 
+  background-color: #000; 
+  color: #e0e0e0; 
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
   outline: none;
@@ -39,7 +39,7 @@ textarea {
 input[type="text"]:focus,
 input[type="number"]:focus,
 textarea:focus {
-  border-color: #f0b90b; /* Gold border on focus */
+  border-color: #f0b90b; 
   background-color: #000;
 }
 
@@ -50,8 +50,8 @@ textarea {
 }
 
 button[type="submit"] {
-  background: #f0b90b; /* Gold background */
-  color: #000; /* Black text */
+  background: #f0b90b; 
+  color: #000; 
   border: none;
   padding: 0.8rem 0;
   border-radius: 8px;

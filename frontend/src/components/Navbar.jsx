@@ -1,9 +1,8 @@
 import React, { useState, useContext, useEffect } from 'react';
-import './Navbar.css'; // Make sure Navbar.css is in the same folder
+import './Navbar.css'; 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { CartContext, AuthContext } from '../App'; // Make sure App.js is in the parent folder
+import { CartContext, AuthContext } from '../App';
 
-// --- SVG Icons for a consistent look ---
 const SearchIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="11" cy="11" r="8"></circle>
@@ -26,7 +25,6 @@ const Navbar = ({ onSearch }) => {
   const navigate = useNavigate();
   const isAdminRoute = location.pathname.startsWith('/admin');
   
-  // Use context from App.js
   const { cart, removeFromCart, updateQuantity } = useContext(CartContext);
   const { user, logout } = useContext(AuthContext);
 
@@ -39,12 +37,12 @@ const Navbar = ({ onSearch }) => {
   };
 
   const handleCartClick = (e) => {
-    // Stop propagation to prevent the document click listener from immediately closing it
+
     e.stopPropagation();
     setShowCart((prev) => !prev);
   };
   
-  // Effect to close the cart when clicking outside of it
+
   useEffect(() => {
     const closeCart = () => setShowCart(false);
     document.addEventListener('click', closeCart);
@@ -59,14 +57,13 @@ const Navbar = ({ onSearch }) => {
 
   return (
     <nav className="navbar">
-      {/* Left side: Brand */}
+    
       <div className="navbar-left">
         <Link to={isAdminRoute ? "/admin" : "/"} className="navbar-brand">
           StorePoint
         </Link>
       </div>
 
-      {/* Center: Search Bar (not shown on admin routes) */}
       {!isAdminRoute && (
         <div className='navbar-search'>
           <input
@@ -83,20 +80,19 @@ const Navbar = ({ onSearch }) => {
         </div>
       )}
 
-      {/* Right side: Actions */}
       <div className="navbar-right">
         {user ? (
-          // --- User is Logged In ---
+   
           <div className="navbar-actions">
             {user.role === 'admin' ? (
-              // --- Admin View ---
+            
               <>
                 <Link to="/admin/products/add" className="navbar-link">Add Product</Link>
                 <span className="user-display">Admin: {user.email}</span>
                 <button className="navbar-button" onClick={handleLogout}>Logout</button>
               </>
             ) : (
-              // --- Regular User View ---
+          
               <>
                 <span className="user-display">{user.email}</span>
                 <div className="cart-container" onClick={handleCartClick}>
@@ -141,7 +137,7 @@ const Navbar = ({ onSearch }) => {
             )}
           </div>
         ) : (
-          // --- User is Logged Out ---
+         
           <Link to="/login" className="navbar-button">Login</Link>
         )}
       </div>

@@ -108,13 +108,13 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/' element={<Home />} />
           
-          {/* --- ADMIN ROUTES --- */}
+        
           <Route path='/admin' element={<ProtectedRoute adminOnly={true}><Home /></ProtectedRoute>} />
           <Route path='/admin/products/add' element={<ProtectedRoute adminOnly={true}><AddProducts /></ProtectedRoute>} />
           <Route path='/admin/products/edit/:productId' element={<ProtectedRoute adminOnly={true}><AddProducts /></ProtectedRoute>} /> {/* --- NEW ROUTE --- */}
           <Route path='/admin/products/detail/:productId' element={<ProtectedRoute adminOnly={true}><ProductDetail /></ProtectedRoute>} />
 
-          {/* --- USER ROUTES --- */}
+       
           <Route path='/products/detail/:productId' element={<ProductDetail />} />
         </Routes>
       </CartProvider>
